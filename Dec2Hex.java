@@ -1,10 +1,17 @@
+import java.util.logging.*;
+
 class Dec2Hex {
+    private static final Logger logger = Logger.getLogger(Dec2Hex.class.getName());
+
     public static int Arg1;
 
     public static void main(String args[]) {
+        LogManager.getLogManager().reset();
+        logger.setLevel(Level.INFO);
+
         if (args.length == 0) {
-            System.out.println("Error: No input argument provided.");
-            return; // Exits the program if no argument is given.
+            logger.severe("Error: No input argument provided.");
+            return;
         }
 
         try {
@@ -12,13 +19,13 @@ class Dec2Hex {
             int rem, num;
             num = Arg1;
             String hexadecimal = "";
-            System.out.println("Converting the Decimal Value " + num + " to Hex...");
+            logger.info("Converting the Decimal Value " + num + " to Hex...");
 
             hexadecimal = toHexadecimal(num);
 
-            System.out.println("Hexadecimal representation is: " + hexadecimal);
+            logger.info("Hexadecimal representation is: " + hexadecimal);
         } catch (NumberFormatException e) {
-            System.out.println("Error: Invalid input. Please provide a valid integer.");
+            logger.severe("Error: Invalid input. Please provide a valid integer.");
         }
     }
 
@@ -26,10 +33,8 @@ class Dec2Hex {
         char ch[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         String hexadecimal = "";
 
-        if (num == 0) {
-            hexadecimal = "0";
-            return hexadecimal;
-
+        if (num==0) {
+            return hexadecimal = "0";
         }
 
         while (num != 0) {
