@@ -26,6 +26,12 @@ class Dec2Hex {
         char ch[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         String hexadecimal = "";
 
+        if (num == 0) {
+            hexadecimal = "0";
+            return hexadecimal;
+
+        }
+
         while (num != 0) {
             int rem = num % 16;
             hexadecimal = ch[rem] + hexadecimal;
