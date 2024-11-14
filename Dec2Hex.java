@@ -34,7 +34,7 @@ class Dec2Hex {
         String hexadecimal = "";
 
         if (num==0) {
-            return hexadecimal = "0";
+            return "0";
         }
 
         while (num != 0) {
