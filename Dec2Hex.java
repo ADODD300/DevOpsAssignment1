@@ -1,8 +1,6 @@
 import java.util.logging.*;
-
 class Dec2Hex {
     private static final Logger logger = Logger.getLogger(Dec2Hex.class.getName());
-
     public static int Arg1;
 
     public static void main(String args[]) {
@@ -16,14 +14,12 @@ class Dec2Hex {
 
         try {
             Arg1 = Integer.parseInt(args[0]);
-            int rem, num;
-            num = Arg1;
+            int num = Arg1;
             String hexadecimal = "";
-            logger.info("Converting the Decimal Value " + num + " to Hex...");
-
+            logger.info(String.format("Starting conversion for decimal value: %d", num));
             hexadecimal = toHexadecimal(num);
-
-            logger.info("Hexadecimal representation is: " + hexadecimal);
+            logger.info(String.format("Hexadecimal representation for %d is: %s", num, hexadecimal));
+            logger.info("Conversion process completed.");
         } catch (NumberFormatException e) {
             logger.severe("Error: Invalid input. Please provide a valid integer.");
         }
@@ -33,7 +29,7 @@ class Dec2Hex {
         char ch[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
         String hexadecimal = "";
 
-        if (num==0) {
+        if (num == 0) {
             return "0";
         }
 
