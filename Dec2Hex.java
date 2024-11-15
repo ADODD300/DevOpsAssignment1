@@ -8,7 +8,7 @@ class Dec2Hex {
         logger.setLevel(Level.INFO);
 
         if (args.length == 0) {
-            logger.severe("Error: No input argument provided.");
+            logger.severe("Errror: No input argument provided.");
             return;
         }
 
